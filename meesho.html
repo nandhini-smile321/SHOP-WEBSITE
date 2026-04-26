@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maha Sale Promo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #6a0dad; /* Purple background */
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    .sale-title {
+      font-size: 48px;
+      font-weight: bold;
+      color: #ff0000; /* Red letters */
+      background: yellow;
+      display: inline-block;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+    }
+    .discount-badge {
+      background: red;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      padding: 15px 30px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+    .calendar {
+      background: white;
+      color: purple;
+      font-size: 28px;
+      font-weight: bold;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .note {
+      font-size: 14px;
+      margin-top: 15px;
+      color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="sale-title">FIRST SUNDAY MAHA SALE</div>
+  <div class="discount-badge">UP TO 70% OFF*</div>
+  <div class="calendar">SUN 3 MAY</div>
+  <div class="note">*TnCs apply.</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meesho Clone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background: #f43397;
+      color: white;
+    }
+
+    header input {
+      width: 40%;
+      padding: 8px;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: space-around;
+      background: #eee;
+      padding: 10px;
+    }
+
+    .banner {
+      text-align: center;
+      padding: 30px;
+      background: #ffd1e8;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Nandini Dress</h2>
+  <input type="text" id="search" placeholder="Search products...">
+  <button>Login</button>
+</header>
+
+<div class="categories">
+  <div>Women</div>
+  <div>Men</div>
+  <div>Kids</div>
+  <div>Beauty</div>
+</div>
+
+<div class="banner">
+  <h2>Lowest Prices Best Quality Shopping</h2>
+</div>
+
+<div class="products" id="productList"></div>
+
+<script>
+  const products = [
+    { name: "Kurti", price: 499 },
+    { name: "T-Shirt", price: 299 },
+    { name: "Saree", price: 699 },
+    { name: "Shoes", price: 899 }
+  ];
+
+  const container = document.getElementById("productList");
+
+  function displayProducts(list) {
+    container.innerHTML = "";
+    list.forEach(p => {
+      container.innerHTML += `
+        <div class="card">
+          <img src="https://via.placeholder.com/150">
+          <h3>${p.name}</h3>
+          <p>₹${p.price}</p>
+        </div>
+      `;
+    });
+  }
+
+  displayProducts(products);
+
+  // Search feature
+  document.getElementById("search").addEventListener("keyup", function() {
+    const value = this.value.toLowerCase();
+    const filtered = products.filter(p =>
+      p.name.toLowerCase().includes(value)
+    );
+    displayProducts(filtered);
+  });
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meesho Clone</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background: #f43397;
+      color: white;
+    }
+
+    header input {
+      width: 40%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    header button {
+      padding: 8px 12px;
+      border: none;
+      background: white;
+      color: #f43397;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: #eee;
+    }
+
+    .categories button {
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      background: #f43397;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .banner {
+      text-align: center;
+      padding: 30px;
+      background: #ffd1e8;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<header>
+  <h2>Nandini Dress</h2>
+  <input type="text" id="search" placeholder="Search products...">
+  <button>Login</button>
+</header>
+
+<!-- Categories -->
+<div class="categories">
+  <button onclick="filterCategory('tops')">Tops</button>
+  <button onclick="filterCategory('shirts')">Shirts</button>
+  <button onclick="filterCategory('night wears')">Night Wears</button>
+  <button onclick="displayProducts(products)">All</button>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  Lowest Prices Best Quality Shopping
+</div>
+
+<!-- Products -->
+<div class="products" id="productList"></div>
+
+<script>
+  const products = [
+    { name: "Floral Top", category: "tops", price: 499 },
+    { name: "Cotton Top", category: "tops", price: 399 },
+    { name: "Casual Shirt", category: "shirts", price: 599 },
+    { name: "Denim Shirt", category: "shirts", price: 799 },
+    { name: "Night Wear Set", category: "night wears", price: 699 },
+    { name: "Comfort Night Dress", category: "night wears", price: 899 }
+  ];
+
+  const container = document.getElementById("productList");
+
+  function displayProducts(list) {
+    container.innerHTML = "";
+    list.forEach(p => {
+      container.innerHTML += `
+        <div class="card">
+          <img src="https://via.placeholder.com/150">
+          <h3>${p.name}</h3>
+          <p>Category: ${p.category}</p>
+          <p>₹${p.price}</p>
+        </div>
+      `;
+    });
+  }
+
+  // Initial load
+  displayProducts(products);
+
+  // Search (Name + Category)
+  document.getElementById("search").addEventListener("keyup", function() {
+    const value = this.value.toLowerCase();
+
+    const filtered = products.filter(p =>
+      p.name.toLowerCase().includes(value) ||
+      p.category.toLowerCase().includes(value)
+    );
+
+    displayProducts(filtered);
+  });
+
+  // Category Filter
+  function filterCategory(cat) {
+    const filtered = products.filter(p => p.category === cat);
+    displayProducts(filtered);
+  }
+</script>
+
+</body>
+</html>
+<script>
+  const container = document.getElementById("productList");
+
+  function showCategoryImage(category) {
+    let image = "";
+
+    if (category === "tops") {
+      image = "https://via.placeholder.com/300?text=Tops";
+    } 
+    else if (category === "shirts") {
+      image = "https://via.placeholder.com/300?text=Shirts";
+    } 
+    else if (category === "night") {
+      image = "https://via.placeholder.com/300?text=Night+Wear";
+    }
+
+    container.innerHTML = `
+      <div class="card">
+        <img src="${image}">
+        <h3>${category.toUpperCase()}</h3>
+      </div>
+    `;
+  }
+</script>
